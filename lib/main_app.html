@@ -1,0 +1,72 @@
+<dom-module id="main-app" height="500">
+
+  <template>
+
+    <style>
+      paper-header-panel {
+      background: orange;
+      }
+      :host {
+    }
+      }
+      .hhh::selection {
+    background-color:red;
+    color:#FFFF;
+    }
+      h1 {
+      text-align: right
+      }
+
+      #child-element {
+        text-align: right;
+      }
+      #paper-toolbar {
+        background: orange;
+      }
+    </style>
+    <body class="fullbleed layout vertical">
+  <paper-header-panel class="flex">
+    <paper-toolbar>
+      <h1>The problem with Powershell</h1>
+    </paper-toolbar>
+  </paper-header-panel>
+    <p>
+      I know what you're thinking. This is going to be another generic rant against a more or less unpopular technology.
+      Well, I hope that is not right at all. In fact, I hope this is a rather unbiased and informative talk, despite its rather pessimistic title.
+      Credit where it is do - there are lots of good things to say about Powershell, but all of them strictly pertaining to the command line interface (CLI)
+      and not the programming language. The CLI is a clear advancement over bash, and with a little help from tools like <a href="http://cmder.net">cmder</a>;
+      it is quite useful. One great feature of the Powershell CLI is the object oriented nature. Powershell is object oriented insofar as commands can return objects.
+      This feature on the command line side isn't very well represented on the language side, as Powershell strangely opts for a Javascript inspired prototype object system,
+      but that is a blog for another day. This blog is about closures, and how Powershell - the very popular language, gets them wrong.
+    </p>
+    <h3>The case for closures</h3>
+  <paper-material>
+<pre style='color:#000000;background:#ffffff;'>
+function foo <span style='color:#800080; '>{</span>
+    <span style='color:#800000; '>"</span><span style='color:#0000e6; '>foo</span><span style='color:#800000; '>"</span>
+<span style='color:#800080; '>}</span>
+
+function bar <span style='color:#800080; '>{</span>
+    param<span style='color:#808030; '>(</span>$stuff<span style='color:#808030; '>)</span>
+    <span style='color:#800080; '>{</span>
+    foo
+    <span style='color:#800000; '>"</span><span style='color:#0000e6; '>$stuff</span><span style='color:#800000; '>"</span>
+    <span style='color:#800080; '>}</span><span style='color:#808030; '>.</span>GetNewClosure<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span>
+<span style='color:#800080; '>}</span>
+
+$x <span style='color:#808030; '>=</span> bar<span style='color:#808030; '>(</span><span style='color:#800000; '>"</span><span style='color:#0000e6; '>bar</span><span style='color:#800000; '>"</span><span style='color:#808030; '>)</span>
+$x<span style='color:#808030; '>.</span>invoke<span style='color:#808030; '>(</span><span style='color:#808030; '>)</span>
+</pre>
+</paper-material>
+</body>
+
+  </template>
+  <script>
+
+      Polymer({
+          is: 'my-element'
+      });
+
+  </script>
+
+</dom-module>
