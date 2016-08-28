@@ -2,9 +2,31 @@
 /* is governed by a BSD-style license that can be found in the LICENSE file. */
 
 body {
-    font-family: RobotoDraft, sans-serif;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
-    -webkit-touch-callout: none;
-    margin-left: 5%;
-    margin-right: 5%;
-}
+       margin: 10;
+       font-family: 'Roboto', 'Noto', sans-serif;
+       background-color: #045465;
+     }
+
+     article {
+       font-weight: 100;
+       text-align: center;
+       margin: 100px auto;
+       background-color: #045465;
+     }
+     article h2 {
+       font-weight: 100;
+       font-size: 50px;
+       margin: 5px;
+     }
+     article p {
+       font-size: 18px;
+       line-height: 30px;
+     }
+
+     article hr {
+       width: 1000px;
+       height: 1px;
+       border: none;
+       margin: 20px auto;
+       background-color: blue;
+     }
